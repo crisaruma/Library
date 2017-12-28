@@ -1,6 +1,7 @@
 ﻿
 
 #include "LibString.h"
+#include "LibFile.h"""
 
 #include <fstream>
 
@@ -24,48 +25,56 @@ int main( int _argc , const char* _argv[] )
         string pathReadFile = pathBase;
                pathReadFile += Ite->c_str();
 
-        FILE* pSjis = fopen( pathReadFile.c_str() , "rb");
-        if( pSjis )
-        {
-            fseek( pSjis , 0 , SEEK_END );
-            const Sint32 fSize = ftell( pSjis );
-            fseek( pSjis , 0 , SEEK_SET );
+		CFile tempFile;
+		if (tempFile.Load(pathReadFile.c_str()))
+		{
+			tempFile.Dump();
+			tempFile.Finalize();
+		}
+		
 
-            char* pBuf = new char[fSize];
-            memset( pBuf , 0x00 , fSize );
-            fread( pBuf , fSize , 1 , pSjis );
+        //FILE* pSjis = fopen( pathReadFile.c_str() , "rb");
+        //if( pSjis )
+        //{
+        //    fseek( pSjis , 0 , SEEK_END );
+        //    const Sint32 fSize = ftell( pSjis );
+        //    fseek( pSjis , 0 , SEEK_SET );
 
-            {
-                Uint8* pDump = reinterpret_cast<Uint8*>(pBuf);
-                for(Sint32 i=0; i<fSize ; i++ , pDump++ )
-                {
-                    if( (*pDump) == 0x00 ){
-                        break;
-                    }
+        //    char* pBuf = new char[fSize];
+        //    memset( pBuf , 0x00 , fSize );
+        //    fread( pBuf , fSize , 1 , pSjis );
 
-                    printf( utf8("%02x ") , (*pDump) );
-                    if( ( (i+1) % 32 ) == 0 )
-                    {
-                        printf( utf8("\n") );
-                    }
-                }
-                printf( utf8("\n\n") );
-            }
+        //    {
+        //        Uint8* pDump = reinterpret_cast<Uint8*>(pBuf);
+        //        for(Sint32 i=0; i<fSize ; i++ , pDump++ )
+        //        {
+        //            if( (*pDump) == 0x00 ){
+        //                break;
+        //            }
 
-            //printf( pBuf );
+        //            printf( utf8("%02x ") , (*pDump) );
+        //            if( ( (i+1) % 32 ) == 0 )
+        //            {
+        //                printf( utf8("\n") );
+        //            }
+        //        }
+        //        printf( utf8("\n\n") );
+        //    }
 
-            string outfile = pathBase;
-            outfile += "output/";
-            outfile += Ite->c_str();
+        //    //printf( pBuf );
 
-            ofstream fStream( outfile.c_str() );
-            if( fStream.is_open() )
-            {
-                fStream.write( pBuf , fSize );
-                fStream.close();
-            }
-            delete[] pBuf;
-        }
+        //    string outfile = pathBase;
+        //    outfile += "output/";
+        //    outfile += Ite->c_str();
+
+        //    ofstream fStream( outfile.c_str() );
+        //    if( fStream.is_open() )
+        //    {
+        //        fStream.write( pBuf , fSize );
+        //        fStream.close();
+        //    }
+        //    delete[] pBuf;
+        //}
     }
     return 0;
 };
