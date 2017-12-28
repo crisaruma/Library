@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{0a1d5d48-26be-4bf1-93dc-063a6362d401}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{6c8c941e-ac99-4bb3-8de9-443002ad88d8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\LibHash.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LibString.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\LibHash.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LibString.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LibType.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
