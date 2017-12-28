@@ -120,12 +120,13 @@ namespace CLib
 
         const Sint32 Count(void) const 
         {
-            return mList.size(); 
+            return static_cast<Sint32>(mList.size());
         }
 
-        void Add(const _Key& _key , const _Val& _val )
+		_Val* Add(const _Key& _key , const _Val& _val )
         {
             mList.insert( CValue( _key , _val ) );
+			return Search(_key);
         }
 
         _Val* Search(const _Key& _key )
@@ -158,12 +159,17 @@ namespace CLib
 
         Ite begin(void){ return mList.begin(); }
         Ite end(void){ return mList.end(); }
+		Ite find(const _Key& _key) { return mList.find(_key); }
 
         CIte begin(void) const { return mList.begin(); }
         CIte end(void) const { return mList.end(); }
+		CIte find(const _Key& _key) const { return mList.find(_key); }
+
+
     };
 
     typedef CMap<Sint32,Sint32>     CMapS32;
+
 
 
 

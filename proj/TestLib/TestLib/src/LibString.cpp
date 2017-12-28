@@ -9,7 +9,7 @@ wstring                                     CString::mTemWString;
 //  Utf8 -> Utf16 の変換
 const Uint16* CString::Utf8ToUtf16( const char* _pStr )
 {
-    const Sint32 len = strlen( _pStr ) + 1;
+    const Sint32 len = static_cast<Sint32>(strlen(_pStr) + 1 );
     const Sint32 memSize = len * sizeof( Uint16 ) * 2 ;
 
     char* pBuf = new char[memSize];
@@ -131,4 +131,39 @@ const char* CString::WideToUtf8( const wchar_t* _str )
 		result = fi->second;
 	}
     return result;
+}
+
+
+
+
+//	文字列置換
+string CString::Replace(const string& _src, const string& _dst, const string& _exchange)
+{
+	string result = _src;
+	std::string::size_type  Pos(result.find(_dst));
+	while (Pos != std::string::npos)
+	{
+		result.replace(Pos, _dst.length(), _exchange);
+		Pos = result.find(_dst, Pos + _exchange.length());
+	}
+	return result;
+}
+
+
+//	文字列の分解
+const Sint32 CString::Split(CDataMap& _result, const string& _src, const string& _delimita)
+{
+	_result.Initialize();
+	string::size_type pos = 0;
+	while (1) {
+		string::size_type findPos = _src.find(_delimita, pos);
+		if (findPos == string::npos)
+		{
+			_result.Add(_result.Count(), _src.substr(pos).c_str());
+			break;
+		}
+		_result.Add(_result.Count(), _src.substr(pos, findPos - pos).c_str());
+		pos = findPos + _delimita.size();
+	}
+	return _result.Count();
 }

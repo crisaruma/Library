@@ -6,11 +6,11 @@
 
 int main( int _argc , const char* _argv[] )
 {
-    printf( _argv[1] );
-    printf( "\n" );
-
-    printf( utf8("%s\n") , _argv[1] );
-    printf( utf8("test_%d \n") , 999 );
+    //	printf( _argv[1] );
+    //	printf( "\n" );
+	//	
+    //	printf( utf8("%s\n") , _argv[1] );
+    //	printf( utf8("test_%d \n") , 999 );
 
     string pathBase = "_debug/";
     CStringList newList;

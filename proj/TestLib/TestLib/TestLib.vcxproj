@@ -136,12 +136,18 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\LibData.cpp" />
+    <ClCompile Include="src\LibFile.cpp" />
     <ClCompile Include="src\LibHash.cpp" />
     <ClCompile Include="src\LibString.cpp" />
+    <ClCompile Include="src\LibTable.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\LibData.h" />
+    <ClInclude Include="include\LibFile.h" />
     <ClInclude Include="include\LibHash.h" />
     <ClInclude Include="include\LibString.h" />
+    <ClInclude Include="include\LibTable.h" />
     <ClInclude Include="include\LibType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

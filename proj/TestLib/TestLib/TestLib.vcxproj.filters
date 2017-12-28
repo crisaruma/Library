@@ -18,6 +18,15 @@
     <ClCompile Include="src\LibString.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\LibFile.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LibData.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LibTable.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\LibHash.h">
@@ -27,6 +36,15 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\LibType.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LibFile.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LibData.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LibTable.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

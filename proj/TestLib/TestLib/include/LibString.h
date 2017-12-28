@@ -2,8 +2,7 @@
 #ifndef __LIB_STRING_H__
 #define __LIB_STRING_H__
 
-#include "LibType.h"
-
+#include "LibData.h"
 
 namespace CLib
 {
@@ -20,6 +19,13 @@ namespace CLib
 
             static const char* _WideToUtf8( const wchar_t * str );
             static const char* WideToUtf8( const wchar_t* _str );
+
+			//	文字列置換
+			static string Replace(const string& _src, const string& _dst, const string& _exchange);
+
+			//	文字列の分解
+			static const Sint32 Split(CDataMap& _result, const string& _src, const string& _delimita);
+
     };
 
 };

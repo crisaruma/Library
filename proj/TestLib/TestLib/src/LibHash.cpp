@@ -41,7 +41,7 @@ const Uint32 CHash::mTable[256]=
 
 
 const Uint32 CHash::CRC32(const char* _pVal ){
-    return CRC32( _pVal , strlen(_pVal) );
+    return CRC32( _pVal , static_cast<Sint32>(strlen(_pVal)) );
 }
 
 
