@@ -259,6 +259,7 @@ bool CTable::MoveRecord( const Sint32& _recordIndex )
 //  ƒŒƒR[ƒh‚ğæ“ª‚É‡‚í‚¹‚é
 bool CTable::First(void){
     mCurrent = mTable.begin();
+    return true;
 }
 
 

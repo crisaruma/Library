@@ -24,6 +24,7 @@ namespace CLib
 
 			virtual void UnLoad(void);
 			virtual const Sint32 Load(const char* _pathFile);
+            virtual const Sint32 Save(const char* _pathFile);
 
 			virtual void Dump(void);
     };

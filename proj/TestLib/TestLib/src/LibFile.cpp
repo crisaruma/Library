@@ -70,6 +70,22 @@ const Sint32 CFile::Load(const char* _pathFile)
 }
 
 
+//  
+const Sint32 CFile::Save(const char* _pathFile)
+{
+	ofstream output(_pathFile , fstream::binary );
+	if (!output.is_open()) 
+	{
+		return 0;
+	}
+
+	output.write( static_cast<char*>(mBuff) , mSize );
+	output.close();
+    return mSize;
+}
+
+
+
 //	
 void CFile::Dump(void)
 {
