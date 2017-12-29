@@ -20,6 +20,9 @@ namespace CLib
             static const char* _WideToUtf8( const wchar_t * str );
             static const char* WideToUtf8( const wchar_t* _str );
 
+            static const wchar_t* _Utf8ToWide( const char* _pStr );
+
+
 			//	文字列置換
 			static string Replace(const string& _src, const string& _dst, const string& _exchange);
 

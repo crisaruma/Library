@@ -36,7 +36,17 @@ const Sint32 CFileCsv::Load(const char* _pathFile)
 
     mTable.Initialize();
 
-    string src = static_cast<char*>(mBuff);
+    Sint32 ofsBom = 0;
+    Uint8* pBom = static_cast<Uint8*>(mBuff);
+    if( pBom )
+    {
+        if( (*(pBom+0) == 0xEF) && (*(pBom+1) == 0xBB) && (*(pBom+2) == 0xBF) )
+        {
+            ofsBom = 3;
+        }
+    }
+
+    string src = (static_cast<char*>(mBuff) + ofsBom);
 
     CDataMap tempMap;
     src = CString::Replace( src , "\r\n" , "\n" ); 
@@ -72,6 +82,11 @@ void CFileCsv::Dump(void)
             newLine += itePrm->second.GetAsStr();
         }
         newLine += "\n";
-        printf( newLine.c_str() );
+
+        //  // utf8 printf -> mojibake
+        //  const wchar_t* pAdr = CString::_Utf8ToWide( newLine.c_str() );
+        //  wprintf( pAdr );
+        //  printf( CString::WideToUtf8( pAdr ) );
+        //  //printf( newLine.c_str() );
     }
 }

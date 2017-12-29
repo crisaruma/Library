@@ -134,6 +134,20 @@ const char* CString::WideToUtf8( const wchar_t* _str )
 }
 
 
+//  
+const wchar_t* CString::_Utf8ToWide( const char* _pStr )
+{
+#ifdef WCHAR_MAX
+	#if WCHAR_MAX <= 0xffff 
+		return reinterpret_cast< const wchar_t * >( Utf8ToUtf16( _pStr ) );
+	#else
+		return reinterpret_cast< const wchar_t * >( Utf8ToUtf32( _pStr ) );
+	#endif
+#else
+#endif
+}
+
+
 
 
 //	文字列置換
