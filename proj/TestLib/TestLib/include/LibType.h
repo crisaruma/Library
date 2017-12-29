@@ -129,6 +129,15 @@ namespace CLib
 			return Search(_key);
         }
 
+        bool Remove(const _Key& _key ){
+            Ite ite = mList.find(_key);
+            if( ite == mList.end() ){
+                return false;
+            }
+            mList.erase( ite );
+            return true;
+        }
+
         _Val* Search(const _Key& _key )
         {
             Ite ite = mList.find( _key );
