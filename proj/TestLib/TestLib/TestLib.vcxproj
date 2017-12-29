@@ -138,6 +138,7 @@
   <ItemGroup>
     <ClCompile Include="src\LibData.cpp" />
     <ClCompile Include="src\LibFile.cpp" />
+    <ClCompile Include="src\LibFileCsv.cpp" />
     <ClCompile Include="src\LibHash.cpp" />
     <ClCompile Include="src\LibString.cpp" />
     <ClCompile Include="src\LibTable.cpp" />
@@ -145,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="include\LibData.h" />
     <ClInclude Include="include\LibFile.h" />
+    <ClInclude Include="include\LibFileCsv.h" />
     <ClInclude Include="include\LibHash.h" />
     <ClInclude Include="include\LibString.h" />
     <ClInclude Include="include\LibTable.h" />

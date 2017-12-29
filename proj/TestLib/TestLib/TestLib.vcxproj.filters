@@ -27,6 +27,9 @@
     <ClCompile Include="src\LibTable.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\LibFileCsv.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\LibHash.h">
@@ -45,6 +48,9 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\LibTable.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LibFileCsv.h">
       <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>

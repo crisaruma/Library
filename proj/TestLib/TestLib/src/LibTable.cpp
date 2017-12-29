@@ -222,6 +222,12 @@ void CTable::AddLabel( const char* _fldName )
 
 
 
+//  新しいレコードを作成する
+CTable::CRecord* CTable::CreateRecord(void){
+    return mTable.Add( mTable.Count() , CRecord() );
+}
+
+
 void CTable::AddRecord( CRecord& _record )
 {
     mTable.Add( mTable.Count() , _record );
@@ -266,9 +272,9 @@ bool CTable::First(void){
 bool CTable::IsEof(void) const {
     if( mCurrent == mTable.end() )
     {
-        return false;
+        return true;
     }
-    return true;
+    return false;
 }
 
 bool CTable::Next(void){

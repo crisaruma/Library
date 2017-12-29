@@ -40,6 +40,12 @@ namespace CLib
 
                     const char* GetName( const Sint32& _fldIndex );
 
+                    CFieldTable::Ite begin(void){ return mName.begin(); }
+                    CFieldTable::Ite end(void){ return mName.end(); }
+
+                    CFieldTable::CIte begin(void) const { return mName.begin(); }
+                    CFieldTable::CIte end(void) const { return mName.end(); }
+
             };
 
             //  レコード
@@ -71,6 +77,13 @@ namespace CLib
 
                     CDataMap& GetRecord(void){ return mParam; }
                     const CDataMap& GetRecord(void) const { return mParam; }
+
+                    CDataMap::Ite begin(void){ return mParam.begin(); }
+                    CDataMap::Ite end(void){ return mParam.end(); }
+
+                    CDataMap::CIte begin(void) const { return mParam.begin(); }
+                    CDataMap::CIte end(void) const { return mParam.end(); }
+
             };
             typedef CMap<Sint32,CRecord>    CRecordList;
 
@@ -87,9 +100,14 @@ namespace CLib
             virtual void Initialize(void);
             virtual void Finalize(void);
 
+            //  ラベル
             void SetLabel( const CLabel& _label );
             void AddLabel( const char* _fldName );
+            CLabel& GetLabel(void){ return mLabel; }
+            const CLabel& GetLabel(void) const { return mLabel; }
 
+            //  レコード
+            CRecord* CreateRecord(void);
             void AddRecord( CRecord& _record );
             bool RemoveRecord( const Sint32& _recordIndex );
             bool MoveRecord( const Sint32& _recordIndex );
