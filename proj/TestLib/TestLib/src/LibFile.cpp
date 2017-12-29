@@ -58,9 +58,9 @@ const Sint32 CFile::Load(const char* _pathFile)
 	input.seekg(0, fstream::beg);
 
 	//	バッファ確保
-	mBuff = static_cast<void*>(new char[mSize]);
+	mBuff = static_cast<void*>(new char[mSize+1]);
 	char* pBuf = static_cast<char*>(mBuff);
-	memset(mBuff, 0x00, mSize);
+	memset(mBuff, 0x00, mSize+1);
 
 	//	読み込み
 	input.read(pBuf, mSize);
