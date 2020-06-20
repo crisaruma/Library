@@ -5,6 +5,7 @@
 
 
 
+
 CFile::CFile()
 : mBuff(NULL)
 , mSize(0)
